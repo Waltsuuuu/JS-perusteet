@@ -8,4 +8,5 @@ function laskeKolmionPintaala(kannanPituus, korkeus){
     return kannanPituus * korkeus / 2;
 }
 
-console.log(laskeKolmionPintaala(2, 3));
+console.log(laskeKolmionPintaala(2, 3))
+console.log(laskeKolmionPintaala(4, 5))
