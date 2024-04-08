@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Tarvitsenko takkia?</title>
+  </head>
+  <body>
+    <h1>Tarvitsenko takkia tänään?</h1>
+    <form>
+      <label for="temp">Mikä on nykyinen lämpötila?</label>
+      <input id="temp" type="text" placeholder="Kirjoita lämpötila tähän" />
+      <input type="submit" value="Otetaan selvää!"/>
+    </form>
+  </body>
+  <script>
+    /*
+    Luo ohjelma getTemperature, joka kysyy käyttäjältä lämpötilaa Celsius-asteina ja sitten tulostaa, 
+    pitäisikö heidän pukea takki päälle (jos lämpötila on alle 15°C) vai ei.
+    */
+
+    document.querySelector("form").onsubmit = () => {
+      let temp = document.querySelector("#temp").value;
+      console.log(temp);
+      takki = (temp) => {
+        if (temp >= 15) {
+          return "Ulkona on kuuma! Takkia ei tarvitse!";
+        } else {
+          return "Ulkona on kylmä! Takki päälle!";
+        }
+      }
+      alert(takki(temp))
+      return false;
+    }
+  </script>
+</html>
