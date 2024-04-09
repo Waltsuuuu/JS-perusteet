@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magic 8ball</title>
+  </head>
+  <body>
+    <h1>MAGIC 8-BALL</h1>
+    <p>Kysy kasipallolta joo tai ei kysymys!<br> Esim. <br> Sataako huomenna vettä? <br> Tuleeko minusta rikas?</p>
+    <form id="8ballForm">
+      <input id="kysymys" type="text" placeholder="Kirjoita kysymys tähän" />
+      <input id="submit" type="submit" value="Kysy" />
+    </form>
+    <div>
+      <h2>Kaikkitietävän vastaus:</h2>
+      <ul id="vastaus"></ul>
+    </div>
+  </body>
+  <script>
+    /**Luo Magic 8-Ball -ohjelma, joka matkii klassista kohtalon ennustamisen lelua. Käyttäjä
+     * syöttää kyllä-tai-ei -kysymyksen, ja ohjelma
+     * antaa satunnaisen vastauksen 8-pallosta. Toteuta ohjelma käyttämällä ehtolauseita valitsemaan
+     * ja näyttämään yksi useista ennalta määritellyistä vastauksista. */
+
+    //Deactivoi lähetä painikkeen, jotta usr ei voi lähettää tyhjää kysymystä.
+    document.querySelector("#submit").disabled = true;
+    document.querySelector("#kysymys").onkeyup = () => {
+      document.querySelector("#submit").disabled = false;
+    };
+
+    //Pyörittää kasipallo ohjelman kun usr kysyy kysymyksen
+    document.querySelector("form").onsubmit = () => {
+      //Luo satunnaisen numeron 1-5, jota käytetään valitsemaan kasipallon vastaus
+      const rng = Math.floor(Math.random() * 5);
+        //Itse kasipallo ohjelma
+      let kasipallo = "";
+      switch (rng) {
+        case 0:
+          kasipallo = "Vaikuttaa siltä";
+          break;
+        case 1:
+          kasipallo = "Ei missään nimessä";
+          break;
+        case 2:
+          kasipallo = "Ehkä";
+          break;
+        case 3:
+          kasipallo = "Vastaukseni on ei";
+          break;
+        case 4:
+          kasipallo = "Kysy uudelleen myöhemmin";
+          break;
+        case 5:
+          kasipallo = "Minun on parasta olla kertomatta";
+          break;
+      }
+      //Estää taas tyhjän kysymksen lähettämisen
+      document.querySelector("#submit").disabled = true;
+
+      //Luo list-itemin usr kysymyksestä ja koneen vastauksesta.
+      let answer = document.querySelector("#kysymys").value;
+      const li = document.createElement("li");
+      li.innerHTML = `${answer} -- ${kasipallo}`;
+      document.querySelector("#vastaus").append(li);
+
+      //Tyhjentää kysymyskentän
+      document.querySelector("#kysymys").value = "";
+
+      //Estää sivun refresh kun usr painaa lähetää kysymyksen
+      return false;
+    };
+  </script>
+</html>
