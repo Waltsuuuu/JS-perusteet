@@ -16,18 +16,18 @@ let name = "Mikko";
 
 let isStudent = true;
 
-let hobbies = [ "juokseminen", "uinti", "lukeminen" ];
+let hobbies = ["juokseminen", "uinti", "lukeminen"];
 
 let info_olio = { schoolName: "Business College", grade: 9 };
 
-console.log(age)
-console.log(name)
-console.log(isStudent)
-console.log(hobbies)
-console.log(info_olio)
+console.log(age);
+console.log(name);
+console.log(isStudent);
+console.log(hobbies);
+console.log(info_olio);
 
-console.log(typeof age)
-console.log(typeof name)
-console.log(typeof isStudent)
-console.log(typeof hobbies)
-console.log(typeof info_olio)
+console.log(typeof age);
+console.log(typeof name);
+console.log(typeof isStudent);
+console.log(typeof hobbies);
+console.log(typeof info_olio);
