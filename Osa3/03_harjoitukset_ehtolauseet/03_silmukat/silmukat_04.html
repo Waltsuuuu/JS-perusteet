@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+
+    //counter stores how many times user has given input. Even stores how many even numbers user entered.
+      let sum = 0;
+      let counter = 0;
+      let even = 0;
+
+    //loops a prompt for the user to enter a number, every entry increases variable counter by 1.
+      do {
+        let input = Number(prompt("enter a number"));
+        sum += input;
+        counter++;
+    //checks if input is even with modulus (0 = even, 1 = odd). Then increases variable even by 1 (++).
+        if (input % 2 === 0) {
+          even++;
+        }
+    //do...while loop runs while counter does not equal 20. When counter = 20, the while condition (counter !== 20) is NOT true, stopping the loop.
+      } while (counter !== 20);
+
+    //reports how many even numbers usr entered
+      console.log(`You entered ${even} even numbers`);
+    </script>
+    <title>Even number counter</title>
+  </head>
+  <body></body>
+</html>
