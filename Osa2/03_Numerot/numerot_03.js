@@ -18,7 +18,7 @@ let roundedNum2 = Math.round(num2);
 
 let sqrtNum1 = Math.sqrt(roundedNum1);
 
-let maxNum = Math.max(num1, num2)
+let maxNum = Math.max(num1, num2);
 
 console.log(roundedNum1)
 console.log(roundedNum2)
