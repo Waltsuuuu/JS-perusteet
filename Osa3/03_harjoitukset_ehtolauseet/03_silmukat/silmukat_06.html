@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+
+        /* Develop a program that initially asks the user for a single number. 
+        Following this, the program should inquire if the user wishes to continue providing numbers with the prompt: 
+        'Do you want to continue giving numbers? (y/n)'. 
+        If the user responds with 'y', the program will request another number. 
+        If the response is 'n', the program terminates. Upon termination, it calculates and displays the 
+        average of all entered numbers. */
+
+        let inputNum;
+        let myArray = [];
+        let inputYn;
+
+        while (inputYn != 'n') {
+         inputNum = Number(prompt("Enter a number"));
+         myArray.push(inputNum)
+         console.log(myArray);
+         inputYn = String(prompt("Do you want to continue giving numbers? (y/n)"));
+        }
+
+        let sum = 0;
+        for (let i = 0; i < myArray.length; i++) {
+          sum += myArray[i];
+        }
+
+        let average = sum / myArray.length;
+
+        console.log(average);
+
+        alert(`Your average is ${average}`); 
+
+
+    </script>
+    <title>average thingy</title>
+</head>
+<body>
+    
+</body>
+</html>

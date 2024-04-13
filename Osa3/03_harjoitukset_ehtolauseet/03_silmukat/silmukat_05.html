@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      /*Develop a program that continuously prompts the user to input numbers until the user enters 0, 
+        at which point the program terminates. After termination, the program should calculate and display 
+        the average of all the entered numbers. */
+
+      let input;
+      let myArray = [];
+
+      //Allows usr to enter number that is not 0. User input is pushed into array. 
+      while (input != 0) {
+        input = Number(prompt("Enter a number"));
+        myArray.push(input);
+
+      //If usr inputs 0, loop stops and pop() removes the 0 input from array (if left in, average not accurate).
+        if (input == 0) {
+          console.log("Input 0 - game over");
+          myArray.pop();
+          break;
+        }
+        }
+        console.log(myArray);
+        
+      //Calculates the sum of numbers in array and calculates average, then alerting it to the user.
+        let sum = 0;
+        for (let i = 0; i < myArray.length; i++) {
+          sum += myArray[i];
+        }
+
+        let average = sum / myArray.length;
+
+        console.log(average);
+
+        alert(`${average}`); 
+    
+    </script>
+    <title>Count the average!</title>
+  </head>
+  <body></body>
+</html>
