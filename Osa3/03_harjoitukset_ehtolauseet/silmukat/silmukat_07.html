@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      /* Make a program that asks ten numbers. Program calculates and prints out sum and average, 
+        also prints out the smallest and biggest number. */
+
+      let myArray = [];
+      let inputNum;
+
+      while (myArray.length != 10) {
+        inputNum = Number(prompt("Enter 10 numbers"));
+        myArray.push(inputNum);
+      }
+
+
+      //SUM AND AVG COUNTER
+      let sum = 0;
+      for (let i = 0; i < myArray.length; i++) {
+        sum += myArray[i];
+      }
+      console.log(myArray);
+      console.log(`Sum is: ${sum}`);
+
+      let average = sum / myArray.length;
+
+      console.log(`Average is: ${average}`);
+
+      //MIN MAX
+      function findMinMax(myArray, n) {
+        let min = myArray[0];
+        let max = myArray[0];
+
+        for (let i = 0; i < n; i++) {
+          if (myArray[i] < min) {
+            min = myArray[i];
+          } else if (myArray[i] > max) {
+            max = myArray[i];
+          }
+        }
+        let ans = {
+          first: min,
+          second: maxm,
+        };
+        return ans;
+      }
+
+      let N = myArray.length;
+
+      //CALL
+      let ans = {};
+      ans = findMinMax(myArray, N);
+      console.log("Maximum is: " + ans.second);
+      console.log("Minimum is: " + ans.first);
+    </script>
+    <title>10 Numbers</title>
+  </head>
+  <body></body>
+</html>
