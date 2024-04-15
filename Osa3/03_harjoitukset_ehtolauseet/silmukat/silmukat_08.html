@@ -4,31 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
-      /* Make a program that asks ten numbers. Program calculates and prints out sum and average, 
-        also prints out the smallest and biggest number. */
+      // Tee ohjelma, joka kysyy aluksi käyttäjältä, kuinka monta numeroa he haluavat syöttää.
+      //Saatuaan tämän tiedon ohjelman tulisi pyytää käyttäjää syöttämään jokainen näistä numeroista.
+      //Kun kaikki numerot on syötetty, ohjelman tulisi selvittää ja näyttää käyttäjän antamista numeroista pienin ja suurin.
+
+      let input = Number(prompt("How many numbers do you want to enter?"));
+
+      console.log(input);
 
       let myArray = [];
       let inputNum;
 
-      while (myArray.length != 10) {
-        inputNum = Number(prompt("Enter 10 numbers"));
+      while (myArray.length != input) {
+        inputNum = Number(prompt("Enter a number"));
         myArray.push(inputNum);
       }
-
-
-      //SUM AND AVG COUNTER
-      let sum = 0;
-      for (let i = 0; i < myArray.length; i++) {
-        sum += myArray[i];
-      }
       console.log(myArray);
-      console.log(`Sum is: ${sum}`);
 
-      let average = sum / myArray.length;
-
-      console.log(`Average is: ${average}`);
-
-      //MIN MAX
+      //min max
       function findMinMax(myArray, n) {
         let min = myArray[0];
         let max = myArray[0];
@@ -49,13 +42,15 @@
 
       let N = myArray.length;
 
-      //CALL
       let ans = {};
       ans = findMinMax(myArray, N);
       console.log("Maximum is: " + ans.second);
       console.log("Minimum is: " + ans.first);
+
+      alert(`The smallest number you entered was ${ans.first} and the largest number you entered was ${ans.second}.`);
+
     </script>
-    <title>10 Numbers</title>
+    <title>Dont know what to call this one</title>
   </head>
   <body></body>
 </html>
