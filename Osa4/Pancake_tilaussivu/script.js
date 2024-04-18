@@ -36,11 +36,19 @@ const priceCalculator = () => {
 
   console.log(`KOKONAISHINTA = ${price}€`);
 
-  //returns a collection of elements with the class totalPrice
+  //returns a collection of elements with the class totalPrice !!NOT ARRAY!!
   let hintaNäyttö = document.getElementsByClassName("totalPrice");
 
   console.log(hintaNäyttö);
+  
+  //Turns collection into array
+  hintaNäyttöArr = Array.from(hintaNäyttö);
 
+  //Runs function on each array element, function changes the elements innerHTML to variable price.
+  hintaNäyttöArr.forEach((element) => element.innerHTML = (`${price}€`));
+
+  //This was what I originally came up with, before realizing hintaNäyttö is not an array :))
+  /*
   //iterates over the collection
   for (let i = 0; i < hintaNäyttö.length; i++) {
     //accesses each element
@@ -48,6 +56,7 @@ const priceCalculator = () => {
     //edits the text content of elements and replaces it with the price
     element.textContent = `${price}€`;
   }
+  */
 };
 
 //when -change- happens in variable "order", run function priceCalculator.
