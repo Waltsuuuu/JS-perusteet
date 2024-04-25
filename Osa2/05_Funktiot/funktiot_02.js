@@ -5,7 +5,7 @@ function multiply1(a, b) {
     return a * b;
 }
 
-multiply2 = (a, b) =>  {
+let multiply2 = (a, b) =>  {
     return a * b;
 }
 

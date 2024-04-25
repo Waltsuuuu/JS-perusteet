@@ -81,7 +81,7 @@ console.log(`Vastaus.9 ${teamMembers}`);
 let uusiTaulukko = [];
 
 uusiTaulukko = teamMembers.concat("Hemmo");
-console.log(uusiTaulukko)
+console.log(uusiTaulukko);
 
 
 // Harjoitus 11: Käyttäen `slice` kopioidaksesi koko taulukon
