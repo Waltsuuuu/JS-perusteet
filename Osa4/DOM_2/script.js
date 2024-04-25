@@ -14,7 +14,6 @@ Ensure the input field is cleared after adding the fruit to the list.
 document.getElementById("addFruitBtn").addEventListener("click", function () {
     let fruit = document.getElementById("fruitInput").value;
     console.log(fruit);
-    
     const li = document.createElement("li");
     li.innerHTML = `${fruit}`;
     document.getElementById("fruitList").append(li);
