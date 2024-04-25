@@ -48,6 +48,16 @@ Expected outcome: "Course: JavaScript"
 
 // Write your object and code here
 
+const student = {
+    name: 'Emily',
+    details: {
+        age: '22',
+        course: 'JavaScript'
+    }
+};
+
+console.log(student.details.course);
+
 // Task 5: Deleting Properties
 /*
 From the `person` object, delete the `age` property. Log the resulting object.
@@ -55,6 +65,11 @@ Expected outcome: { name: "Alex", country: "Canada" }
 */
 
 // Write your code here
+
+delete person.age;
+
+console.log(person);
+
 
 // Task 6: Object Keys and Values
 /*
@@ -66,6 +81,9 @@ Values: Alex, Canada
 
 // Write your code here
 
+console.log(`Keys: ${Object.keys(person)}`);
+console.log(`Values: ${Object.values(person)}`);
+
 // Task 7: Using Object Methods
 /*
 Define a method inside the `person` object named `greet` that returns "Hello, my name is Alex".
@@ -74,3 +92,11 @@ Expected outcome: "Hello, my name is Alex"
 */
 
 // Modify your person object and write your method invocation here
+
+person.greet = 
+    function () {
+        return (`Hello, my name is ${this.name}`)
+    };
+
+
+console.log(person.greet())
