@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            margin: 10px 0 10px 0;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<h1>Submit your book to the library</h1>
+<form>
+    <input type="text" id="title" placeholder="Title">
+    <input type="text" id="author" placeholder="Author">
+    <input type="text" id="yearPublished" placeholder="Year Published">
+    <select name="genres" id="genres" multiple>
+        <option value="Cooking">Cooking</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Non-fiction">Non-fiction</option>
+        <option value="Biography">Biography</option>
+      </select>
+      <p>*Hold cmd and click to select multiple genres</p>
+
+    <input type="submit">
+</form>
+<script src="Objects_2.js"></script>
+</body>
+</html>
