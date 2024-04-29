@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pancakekone</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+<!--LEFT SIDE OF PAGE (IMAGE AND TOTAL PRICE INDICATOR)-->
+    <div class="container">
+      <div class="image-container">
+        <img src="assets/pancake.jpeg" alt="Delicious pancakes" />
+        <div class="price-banner"><span class="totalPrice">5€</span></div>
+      </div>
+<!--ORDER FORM-->
+      <div class="form-container">
+        <h2>Muokkaa Pancake-tilaustasi</h2>
+        <div class="customization-section">
+          <label for="type">Valitse pancake tyyli:</label>
+          <select id="type">
+            <option id="Klassinen" value="5">Klassinen- 5€</option>
+            <option id="Suklaa" value="6">Suklaa - 6€</option>
+            <option id="Mustikka" value="7">Mustikka - 7€</option>
+          </select>
+        </div>
+        <div class="customization-section">
+          <p>Valitse lisukkeet (1€ kukin):</p>
+          <input type="checkbox" class="lisuke" id="Pähkinät" value="1" />Pähkinät<br />
+          <input type="checkbox" class="lisuke" id="Banaanit" value="1" />Banaani<br />
+          <input type="checkbox" class="lisuke" id="Siirappi" value="1" />Siirappi<br />
+        </div>
+        <div class="customization-section">
+          <p>Lisävaihtoehdot:</p>
+          <input type="checkbox" class="extra" id="Kermavaahto" value="2" />Kermavaahto -
+          2€<br />
+          <input type="checkbox" class="extra" id="Jäätelö" value="3" />Jäätelö - 3€<br />
+        </div>
+        <div>
+        <input type="text" id="nameInput" placeholder="Tilaajan Nimi">
+        </div>
+        <div class="price-display">
+          <h3>Kokonaishinta <span class="totalPrice">5€</span></h3>
+        </div>
+        <input type="submit" id="submitOrder" value="Siirry tarkistelemaan tilausta">
+      </div>
+<!--SUMMARY SECTION, hidden until user submits order-->
+      <div id="orderSummary">
+        <h3>Tilauksen yhteenveto</h3>
+        <ul id="yhteenveto">
+          <li>Tilaajan Nimi: <span id="namePlaceholder"></span></li>
+          <li>Pannukakku: <span id="typePlaceholder"></span></li>
+          <li>Lisukkeet: <span id="lisukePlaceholder"></span></li>
+          <li>Extrat: <span id="extraPlaceholder"></span></li>
+          <li>Hinta: <span id="pricePlaceholder"></span></li>
+        </ul>
+        <input type="submit" id="muokkaaTilausta" value="Palaa muokkaamaan tilausta">
+        <input type="submit" id="vahvistaTilaus" value="Vahvista tilaus">
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
