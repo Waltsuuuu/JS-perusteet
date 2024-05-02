@@ -3,6 +3,7 @@ const order = document.querySelector(".form-container");
 const type = document.querySelector("#type");
 let userName = document.getElementById("nameInput");
 let userEmail = document.getElementById("emailInput");
+let price;
 
 changeUsername = () => {
   userName = document.getElementById("nameInput").value;
@@ -81,7 +82,7 @@ const priceCalculator = () => {
   console.log(userName);
 
   //kokonaishinta
-  let price = typePrice + lisukePrice + extraPrice;
+  price = typePrice + lisukePrice + extraPrice;
 
   console.log(`KOKONAISHINTA = ${price}€`);
 
@@ -99,7 +100,9 @@ const priceCalculator = () => {
   const banner = document.getElementById('price-banner');
   banner.animate(
     [
-     {transform: 'translateY(0)'},
+      { transform: 'scale(1)' },
+      { transform: 'rotate(90deg)' },
+      { transform: ' scale(1)' },
     ],
     {
       duration: 100,
@@ -167,12 +170,12 @@ const submitOrder = () => {
     extraArray.join(", ");
   }
   document.getElementById("pricePlaceholder").textContent = `${price}€`;
-}
+};
 
 //FINAL ORDER CONFIRMATION
 const finalOrder = () => {
   document.getElementById("orderSummary").style.display = "none";
-  document.getElementById("kiitos").style.display = "block";
+  document.getElementById("kiitos").style.display = "flex";
 
 
 

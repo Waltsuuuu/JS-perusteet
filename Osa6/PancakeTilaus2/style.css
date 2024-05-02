@@ -8,6 +8,7 @@ body {
 header img {
   margin-left: auto;
   margin-right: auto;
+  height: 20vh;
 }
 
 header {
@@ -18,7 +19,7 @@ header {
 
 header button {
   display: none;
-  width: 5rem;
+  width: 4vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -30,10 +31,10 @@ header button {
   padding-top: 3rem;
 }
 
-h1 {
+h1, h3{
   text-align: center;
   font-weight: bold;
-  font-size: 6rem;
+  font-size: 5vh;
 }
 
 h2 {
@@ -41,7 +42,13 @@ h2 {
   margin-top: 2rem;
   font-weight: bold;
   padding-top: 3rem;
-  font-size: 4rem;
+  font-size: 4vh;
+}
+
+h4 {
+  padding-top: 3vh;
+  font-weight: bold;
+  font-size: 4vh;
 }
 
 .customization-section-type {
@@ -49,7 +56,6 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: left;
-  font-size: 4rem;
   margin-bottom: 2rem;
 }
 
@@ -57,7 +63,7 @@ select {
   height: 6rem;
   width: 50%;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 2vh;
   text-align: center;
   color: #5a4a42;
   margin-left: 2rem;
@@ -98,7 +104,9 @@ input[type="email"] {
   color: #5a4a42;
   background-color: white;
   border-color: gainsboro;
+  border: 1px solid black;
 }
+
 #price-banner {
   display: flex;
   margin-left: auto;
@@ -119,8 +127,42 @@ input[type="email"] {
   font-size: large;
 }
 
+ul {
+  padding-left: 2vh;
+}
+
+li {
+  font-size: 3vh;
+  font-weight: bold;
+  padding: 1vh 0 1vh 0;
+}
+
 span {
-  font-size: 5rem;
+  font-size: 3vh;
+  font-weight: normal;
+}
+
+.hinta {
+  margin-top: 2rem;
+  font-size: 4vh;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.hinta span{
+  font-size: 4vh;
+  text-decoration: underline;
+}
+
+input[type="submit"] {
+  color: #5a4a42;
+  background-color: white;
+  border-color: gainsboro;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3rem;
+  border: solid 1px black;
 }
 
 .totalPrice {
@@ -132,7 +174,6 @@ span {
 
 input[type="submit"] {
   justify-content: center;
-  width: auto;
   height: 10rem;
   font-size: 3rem;
   padding: 2rem;
@@ -151,6 +192,19 @@ input[type="submit"] {
 
 #kiitos {
   display: none;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 5vh;
+  margin-top: 10vh;
+  font-weight: bold;
+}
+
+#returnHome {
+  width: auto;
+  height: 5vh;
+  font-size: 3vh;
 }
 
 
