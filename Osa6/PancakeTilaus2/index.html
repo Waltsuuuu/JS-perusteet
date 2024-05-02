@@ -2,65 +2,111 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Pancakekone</title>
+    <title>PancakeHouse</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
   </head>
   <body>
-<!--LEFT SIDE OF PAGE (IMAGE AND TOTAL PRICE INDICATOR)-->
+    <header>
+      <img src="assets/pancake-logo.png" alt="pancake logo">
+      <button><a href="orderManagement/index.html">View order</a></button>
+    </header>
+    <!--LEFT SIDE OF PAGE (IMAGE AND TOTAL PRICE INDICATOR)-->
     <div class="container">
       <div class="image-container">
         <img src="assets/pancake.jpeg" alt="Delicious pancakes" />
-        <div class="price-banner"><span class="totalPrice">5€</span></div>
-      </div>
-<!--ORDER FORM-->
+     </div>      
+      <!--ORDER FORM-->
       <div class="form-container">
-        <h2>Muokkaa Pancake-tilaustasi</h2>
-        <div class="customization-section">
-          <label for="type">Valitse pancake tyyli:</label>
+        <h1>Tilauslomake</h1>
+        <div class="customization-section-type">
+          <h2 for="type">Valitse Pannukakku:</h2>
           <select id="type">
             <option id="Klassinen" value="5">Klassinen- 5€</option>
             <option id="Suklaa" value="6">Suklaa - 6€</option>
             <option id="Mustikka" value="7">Mustikka - 7€</option>
           </select>
         </div>
+        <h2>Valitse lisukkeet (1€/lisuke):</h2>
+
         <div class="customization-section">
-          <p>Valitse lisukkeet (1€ kukin):</p>
-          <input type="checkbox" class="lisuke" id="Pähkinät" value="1" />Pähkinät<br />
-          <input type="checkbox" class="lisuke" id="Banaanit" value="1" />Banaani<br />
-          <input type="checkbox" class="lisuke" id="Siirappi" value="1" />Siirappi<br />
+          <input
+            type="checkbox"
+            class="lisuke"
+            id="Pähkinät"
+            value="1"
+          /><p>Pähkinät</p>
+          <input
+            type="checkbox"
+            class="lisuke"
+            id="Banaanit"
+            value="1"
+          /><p>Banaani</p>
+          <input
+            type="checkbox"
+            class="lisuke"
+            id="Siirappi"
+            value="1"
+          /><p>Siirappi</p>
         </div>
+        <h2>Lisävaihtoehdot:</h2>
+
         <div class="customization-section">
-          <p>Lisävaihtoehdot:</p>
-          <input type="checkbox" class="extra" id="Kermavaahto" value="2" />Kermavaahto -
-          2€<br />
-          <input type="checkbox" class="extra" id="Jäätelö" value="3" />Jäätelö - 3€<br />
+          <input
+            type="checkbox"
+            class="extra"
+            id="Kermavaahto"
+            value="2"
+          /><p>Kermavaahto(2€)</p>
+          <input type="checkbox" class="extra" id="Jäätelö" value="3" /><p>Jäätelö(3€)</p>
         </div>
-        <div>
-          <h2>Yhtystiedot</h2>
-        <input type="text" id="nameInput" placeholder="Tilaajan nimi">
-        <input type="email" id="emailInput" placeholder="Sähköposti">
+        <h2>Yhteystiedot</h2>
+
+        <div class="customization-section">
+          <input type="text" id="nameInput" placeholder="Tilaajan nimi" />
+          <input type="email" id="emailInput" placeholder="Sähköposti" />
         </div>
-        <div class="price-display">
-          <h3>Kokonaishinta <span class="totalPrice">5€</span></h3>
-        </div>
-        <input type="submit" id="submitOrder" value="Siirry tarkistelemaan tilausta">
+        <h2>Kokonaishinta</h2>
+          <div id="price-banner"><span class="totalPrice">5€</span></div>
+          <div class="customization-section">
+        <input
+          type="submit"
+          id="submitOrder"
+          value="Siirry tarkistelemaan tilausta"
+        />
+          </div>
       </div>
-<!--SUMMARY SECTION, hidden until user submits order-->
+      <!--SUMMARY SECTION, hidden until user submits order-->
       <div id="orderSummary">
         <h3>Tilauksen yhteenveto</h3>
         <ul id="yhteenveto">
-        <h4>Yhteystiedot</h4>
+          <h4>Yhteystiedot</h4>
           <li>Tilaajan Nimi: <span id="namePlaceholder"></span></li>
           <li>Sähköposti: <span id="emailPlaceholder"></span></li>
-        <h4>Tilaus</h4>
+          <h4>Tilaus</h4>
           <li>Pannukakku: <span id="typePlaceholder"></span></li>
           <li id="lisukeLi">Lisukkeet: <span id="lisukePlaceholder"></span></li>
           <li id="extraLi">Extrat: <span id="extraPlaceholder"></span></li>
-        <h4>Summa</h4>
+          <h4>Summa</h4>
           <li>Tilauksen hinta: <span id="pricePlaceholder"></span></li>
         </ul>
-        <input type="submit" id="muokkaaTilausta" value="Palaa muokkaamaan tilausta">
-        <input type="submit" id="vahvistaTilaus" value="Vahvista tilaus">
+        <input
+          type="submit"
+          id="muokkaaTilausta"
+          value="Palaa muokkaamaan tilausta"
+        />
+        <input type="submit" id="vahvistaTilaus" value="Vahvista tilaus" />
+      </div>
+
+      <!--THANK YOU FOR ORDERING-->
+      <div id="kiitos">
+        <h5>Kiitos tilauksesta!</h5>
+        <button id="returnHome">
+          <a href="index.html">Palaa etusivulle</a>
+        </button>
       </div>
     </div>
     <script src="script.js"></script>

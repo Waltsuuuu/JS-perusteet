@@ -12,7 +12,22 @@ changeEmail = () => {
   userEmail = document.getElementById("emailInput").value;
 };
 
-//CALCULATES AND UPDATES USER ON ORDER PRICE.
+class pancakeOrder {
+  constructor(name, email, type, lisukkeet, extras, price, status) {
+    this.name = name;
+    this.email = email;
+    this.type = type;
+    this.lisukkeet = lisukkeet;
+    this.extra = extras;
+    this.price = price;
+    this.status = status
+  }
+}
+
+const orders = [];
+
+
+//ORDER FORM - CALCULATES AND UPDATES USER ON ORDER PRICE.
 const priceCalculator = () => {
   //Pancake price
   let typePrice = Number(type.value);
@@ -66,7 +81,7 @@ const priceCalculator = () => {
   console.log(userName);
 
   //kokonaishinta
-  price = typePrice + lisukePrice + extraPrice;
+  let price = typePrice + lisukePrice + extraPrice;
 
   console.log(`KOKONAISHINTA = ${price}€`);
 
@@ -80,6 +95,18 @@ const priceCalculator = () => {
 
   //Runs function on each array element, function changes the elements innerHTML to variable price.
   hintaNäyttöArr.forEach((element) => (element.innerHTML = `${price}€`));
+
+  const banner = document.getElementById('price-banner');
+  banner.animate(
+    [
+     {transform: 'translateY(0)'},
+    ],
+    {
+      duration: 100,
+      iterations: 1,
+    }
+  );
+  
 };
 
 //Re-reveals hidden elements if user decides to go back to change order
@@ -89,9 +116,10 @@ const returnToOrder = () => {
   document.getElementById("submitOrder").style.display = "";
   document.getElementById("lisukeLi").style.display = "";
   document.getElementById("extraLi").style.display = "";
+  document.getElementById("price-banner").style.display = "";
 };
 
-//SUBMITTING ORDER
+//SUBMITTING ORDER - User gets summary of their order to review.
 const submitOrder = () => {
   //Stops user from advancing if they have no entered their name or email
   if (document.getElementById("nameInput").value == "") {
@@ -116,6 +144,7 @@ const submitOrder = () => {
   document.getElementById("orderSummary").style.display = "flex";
   order.style.display = "none";
   document.getElementById("submitOrder").style.display = "none";
+  document.getElementById("price-banner").style.display = "none";
 
   //Gets users order details and lists them in summary
   document.getElementById("namePlaceholder").textContent = userName;
@@ -140,6 +169,31 @@ const submitOrder = () => {
   document.getElementById("pricePlaceholder").textContent = `${price}€`;
 }
 
+//FINAL ORDER CONFIRMATION
+const finalOrder = () => {
+  document.getElementById("orderSummary").style.display = "none";
+  document.getElementById("kiitos").style.display = "block";
+
+
+
+
+
+  const order = new pancakeOrder(userName, userEmail, typeSummary, lisukeArray, extraArray, price);
+  console.log(order);
+
+  orders.push(order);
+
+  const ordersString = JSON.stringify(orders);
+
+  const userOrderJSON = JSON.stringify(order);
+
+  localStorage.setItem('userOrder', userOrderJSON);
+
+  localStorage.setItem('orders', ordersString);
+
+  
+
+}
 
 //EVENTLISTENERS
 
@@ -153,3 +207,5 @@ userName.addEventListener("change", changeUsername);
 userEmail.addEventListener("change", changeEmail);
 //when user clicks 'palaa muokkaamaan tilausta on the summary page, returns user to order page.
 document.getElementById("muokkaaTilausta").addEventListener("click", returnToOrder);
+//when user clicks vahvista tilaus, run finalOrder function
+document.getElementById("vahvistaTilaus").addEventListener("click", finalOrder)
