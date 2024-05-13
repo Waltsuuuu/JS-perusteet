@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Autot</title>
+</head>
+<body>
+
+    <div id="formContainer">
+    <form>
+        <h1>Lisää auto</h1>
+        <input type="text" for="rekisterinumeroInput"id="rekisterinumeroInput" placeholder="Rekisterinumero">
+        <input type="text" for="valmistajaInput"id="valmistajaInput" placeholder="Valmistaja">
+        <input type="text" for="malliInput"id="malliInput" placeholder="Malli">
+        <input type="text" for="omistajaInput"id="omistajaInput" placeholder="Nykyinen omistaja">
+        <input type="text" for="hintaInput"id="hintaInput" placeholder="Hinta">
+        <input type="text" for="variInput"id="variInput" placeholder="Väri">
+        <button id="autoSubmit">Lisää</button>
+    </form>
+
+    <form>
+        <h2>Hae auton tiedot rekisterinumerolla</h2>
+        <input type="text" id="searchInput">
+        <button id="autoSearch"type="submit">Hae</button>
+    </form>
+</div>
+    <table id="autoTable">
+        <h3>Auto lista</h3>
+        <button type="submit" id="refreshData">Näytä kaikki autot</button>
+        <tr>
+            <th>Rekisterinumero</th>
+            <th>Valmistaja</th>
+            <th>Malli</th>
+            <th>Nykyinen omistaja</th>
+            <th>Hinta</th>
+            <th>Väri</th>
+        </tr>
+    </table>
+    <div id="controlButtons">
+    <button type="submit" id="saveData">Tallenna</button>
+    <button type="submit" id="refreshData">Näytä kaikki autot</button>
+    <button type="submit" id="deleteData">Poista taulukko ja tiedot</button>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
