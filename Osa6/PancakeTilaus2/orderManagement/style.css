@@ -1,4 +1,23 @@
+h1 {
+    font-size: 5rem;
+}
 table, th, td {
     border:1px solid black;
     background-color: gainsboro;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+table {
+    width: 80%;
+}
+
+button {
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+a {
+    text-decoration: none;
+    color: black;
 }

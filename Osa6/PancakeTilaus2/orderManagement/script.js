@@ -66,3 +66,9 @@ window.onload = function () {
     PancakeOrder.loadOrders();
   };
   
+const deleteData = () => {
+    localStorage.clear();
+    location.reload()
+}
+
+document.getElementById('deleteAll').addEventListener('click', deleteData);
