@@ -116,38 +116,7 @@ function deleteTable() {
 }
 
 function searchCars(event) {
-  event.preventDefault();
 
-  const searchInput = document
-    .getElementById("searchInput")
-    .value.toLowerCase();
-  const table = document.getElementById("autoTable");
-  const rows = table.getElementsByTagName("tr");
-  let found = false;
-
-  // Loop through all table rows (skip the first row - header row)
-  for (let i = 1; i < rows.length; i++) {
-    const rekisteriCell = rows[i].getElementsByTagName("td")[0]; // Get rekisteri cell (first column)
-    if (rekisteriCell) {
-      const rekisteriText = rekisteriCell.textContent.trim().toLowerCase();
-      const display = rekisteriText.includes(searchInput); // Check if make matches search input
-      console.log(rekisteriText);
-      console.log(display);
-      rows[i].style.display = display ? "" : "none"; // Show/hide row based on search result
-      if (display) {
-        found = true; // Set flag to true if at least one match is found
-      }
-    }
-
-    if (!found) {
-      window.alert("Rekisterinumerolla ei löytnyt autoja");
-      document.getElementById('searchInput').value = "";
-      rows[i].style.display = '';
-      return;
-    } else {   document.getElementById('searchInput').value = "";
-
-    }
-  }
 }
 
 function refreshData() {
@@ -169,44 +138,3 @@ document.getElementById("autoSearch").addEventListener("click", searchCars);
 
 document.getElementById("autoSubmit").addEventListener("click", addAuto);
 
-/*
-  userAuto = new Auto(
-    rekisterinumero,
-    valmistaja,
-    malli,
-    omistaja,
-    hinta,
-    vari
-  );
-  autot.push(userAuto);
-
-  let autoTr = document.createElement("tr");
-  document.getElementById("carTable").append(autoTr);
-
-  let rekTd = document.createElement("td");
-  let valTd = document.createElement("td");
-  let malTd = document.createElement("td");
-  let omiTd = document.createElement("td");
-  let hinTd = document.createElement("td");
-  let varTd = document.createElement("td");
-
-  rekTd.textContent = userAuto.rekisterinumero;
-  valTd.textContent = userAuto.valmistaja;
-  malTd.textContent = userAuto.malli;
-  omiTd.textContent = userAuto.omistaja;
-  hinTd.textContent = userAuto.hinta;
-  varTd.textContent = userAuto.vari;
-
-  autoTr.append(rekTd, valTd, malTd, omiTd, hinTd, varTd);
-
-  console.log(userAuto);
-  console.log(autot);
-
-  localStorage.setItem("AutotTaulukko", autoTaulukko);
-  localStorage.setItem("AutotLista", JSON.stringify(autot));
-
-  document.forms[0].reset();
-};
-
-document.getElementById("autoSubmit").addEventListener("click", addAuto);
-*/

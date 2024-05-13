@@ -12,20 +12,44 @@ changeEmail = () => {
   userEmail = document.getElementById("emailInput").value;
 };
 
-class pancakeOrder {
-  constructor(name, email, type, lisukkeet, extras, price, status) {
-    this.name = name;
-    this.email = email;
-    this.type = type;
-    this.lisukkeet = lisukkeet;
-    this.extra = extras;
-    this.price = price;
-    this.status = status;
+class PancakeOrder {
+  constructor(userName, userEmail, typeSummary, lisukkeArray, extraArray, price, status) {
+    (this.userName = userName),
+    (this.userEmail = userEmail),
+    (this.typeSummary = typeSummary),
+    (this.lisukeArray = lisukkeArray),
+    (this.extraArray = extraArray),
+    (this.price = price),
+    (this.status = status);
   }
-}
 
-let userOrder;
-const ordersArray = [];
+  static saveOrder(ordersArray) {
+    localStorage.setItem("orders", JSON.stringify(ordersArray));
+  }
+
+  static loadOrders() {
+    let storedOrders = localStorage.getItem("orders");
+    if (storedOrders) {
+      let orderData = JSON.parse(storedOrders);
+      orderData.forEach(function (orderData) {
+        let order = new PancakeOrder(
+          orderData.userName,
+          orderData.userEmail,
+          orderData.typeSummary,
+          orderData.lisukeArray,
+          orderData.extraArray,
+          orderData.price,
+          orderData.status
+        )
+        console.log(order);
+        ordersArray.push(order);
+      });
+      };
+    }
+  };
+var ordersArray = [];
+
+
 
 //ORDER FORM - CALCULATES AND UPDATES USER ON ORDER PRICE.
 const priceCalculator = () => {
@@ -104,7 +128,7 @@ const priceCalculator = () => {
   );
 };
 
-//Re-reveals hidden elements if user decides to go back to change order
+//Reveals hidden elements if user decides to go back and change order
 const returnToOrder = () => {
   document.getElementById("orderSummary").style.display = "none";
   order.style.display = "";
@@ -114,7 +138,7 @@ const returnToOrder = () => {
   document.getElementById("price-banner").style.display = "";
 };
 
-//SUBMITTING ORDER - User gets summary of their order to review.
+//SUBMITTING ORDER - User gets to view summary of their order
 const submitOrder = () => {
   //Stops user from advancing if they have no entered their name or email
   if (document.getElementById("nameInput").value == "") {
@@ -163,29 +187,35 @@ const submitOrder = () => {
   document.getElementById("pricePlaceholder").textContent = `${price}€`;
 };
 
-//FINAL ORDER CONFIRMATION
+//FINAL ORDER CONFIRMATION 
 const finalOrder = () => {
   document.getElementById("orderSummary").style.display = "none";
   document.getElementById("kiitos").style.display = "flex";
 
-  const userOrder = new pancakeOrder(
+  var userOrder = {
     userName,
     userEmail,
     typeSummary,
     lisukeArray,
     extraArray,
-    price
-  );
+    price,
+  };
   console.log(userOrder);
 
   ordersArray.push(userOrder);
 
-  const userOrderString = JSON.stringify(ordersArray);
-  
-  localStorage.setItem("ordersArray", userOrderString);
+  PancakeOrder.saveOrder(ordersArray);
 
-  return userOrder;
 };
+
+//REFRESH PAGE - After order is completed
+const returnHome = () => {
+  location.reload();
+}
+
+window.onload = function () {
+  PancakeOrder.loadOrders();
+}
 
 //EVENTLISTENERS
 order.addEventListener("change", priceCalculator);
@@ -196,3 +226,4 @@ document
   .getElementById("muokkaaTilausta")
   .addEventListener("click", returnToOrder);
 document.getElementById("vahvistaTilaus").addEventListener("click", finalOrder);
+document.getElementById('returnHome').addEventListener("click", returnHome);

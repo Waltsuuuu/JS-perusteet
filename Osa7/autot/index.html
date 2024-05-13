@@ -24,11 +24,17 @@
         <h2>Hae auton tiedot rekisterinumerolla</h2>
         <input type="text" id="searchInput">
         <button id="autoSearch"type="submit">Hae</button>
+        <button type="submit" id="refreshData">Näytä kaikki autot</button>
     </form>
 </div>
+<div class="search-results">
+    <ul id="result-list">
+
+    </ul>
+</div>
+
     <table id="autoTable">
         <h3>Auto lista</h3>
-        <button type="submit" id="refreshData">Näytä kaikki autot</button>
         <tr>
             <th>Rekisterinumero</th>
             <th>Valmistaja</th>
@@ -40,7 +46,6 @@
     </table>
     <div id="controlButtons">
     <button type="submit" id="saveData">Tallenna</button>
-    <button type="submit" id="refreshData">Näytä kaikki autot</button>
     <button type="submit" id="deleteData">Poista taulukko ja tiedot</button>
     </div>
     <script src="main.js"></script>
