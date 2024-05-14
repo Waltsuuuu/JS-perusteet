@@ -27,6 +27,14 @@ class PancakeOrder {
     const cellExtra = newRow.insertCell();
     const cellPrice = newRow.insertCell();
     const cellStatus = newRow.insertCell();
+    const statusCheck = document.createElement('input');
+    statusCheck.type = 'checkbox';
+    cellStatus.appendChild(statusCheck);
+    const cellDelete = newRow.insertCell();
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = 'Delete';
+    deleteButton.className = 'delete-btn';
+    cellDelete.appendChild(deleteButton);
 
     cellName.textContent = this.userName;
     cellEmail.textContent = this.userEmail;
@@ -34,7 +42,16 @@ class PancakeOrder {
     cellLisuke.textContent = this.lisukeArray;
     cellExtra.textContent = this.extraArray;
     cellPrice.textContent = `${this.price}€`;
-    cellStatus.textContent = this.status;
+
+    //Order delete and confirmation
+    deleteButton.addEventListener('click', function (event) {
+        let confirmation = confirm('Are you sure you want to delete this order?');
+        if (confirmation == true) {
+        const btn = event.target;
+        const row = btn.closest('tr');
+        row.remove();
+        } else {};
+    });
   }
 
   static saveOrder(ordersArray) {
@@ -67,8 +84,15 @@ window.onload = function () {
   };
   
 const deleteData = () => {
+    let confirmation = confirm('Are you sure you want to delete ALL order data?');
+    if (confirmation == true) {
     localStorage.clear();
     location.reload()
+    } else {};
 }
 
 document.getElementById('deleteAll').addEventListener('click', deleteData);
+
+let storedOrders = localStorage.getItem("orders");
+let orderData = JSON.parse(storedOrders);
+

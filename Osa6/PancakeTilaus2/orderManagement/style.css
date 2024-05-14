@@ -8,6 +8,10 @@ table, th, td {
     padding: 1rem;
 }
 
+td {
+    text-align: center;
+}
+
 table {
     width: 80%;
 }
@@ -21,3 +25,18 @@ a {
     text-decoration: none;
     color: black;
 }
+
+input[type=checkbox] {
+    margin: auto;
+    width:30px;
+    height:30px;
+    background:white;
+    border-radius:5px;
+    border:2px solid #555;
+    accent-color: red;    
+}
+
+input[type=checkbox]:checked {
+    accent-color: green;
+}
+

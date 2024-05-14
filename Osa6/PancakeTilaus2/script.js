@@ -3,7 +3,9 @@ const type = document.querySelector("#type");
 let userName = document.getElementById("nameInput");
 let userEmail = document.getElementById("emailInput");
 let price;
+var ordersArray = [];
 
+//Name and Email
 changeUsername = () => {
   userName = document.getElementById("nameInput").value;
 };
@@ -12,6 +14,7 @@ changeEmail = () => {
   userEmail = document.getElementById("emailInput").value;
 };
 
+//PancakeOrder constructor
 class PancakeOrder {
   constructor(userName, userEmail, typeSummary, lisukkeArray, extraArray, price, status) {
     (this.userName = userName),
@@ -47,9 +50,6 @@ class PancakeOrder {
       };
     }
   };
-var ordersArray = [];
-
-
 
 //ORDER FORM - CALCULATES AND UPDATES USER ON ORDER PRICE.
 const priceCalculator = () => {
@@ -213,6 +213,7 @@ const returnHome = () => {
   location.reload();
 }
 
+//Loads orders from localstorage.
 window.onload = function () {
   PancakeOrder.loadOrders();
 }
