@@ -50,7 +50,9 @@ class PancakeOrder {
         const btn = event.target;
         const row = btn.closest('tr');
         row.remove();
-        } else {};
+        } else {      
+          console.log(this.orderData);
+        };
     });
   }
 
@@ -88,7 +90,8 @@ const deleteData = () => {
     if (confirmation == true) {
     localStorage.clear();
     location.reload()
-    } else {};
+    } else {
+    };
 }
 
 document.getElementById('deleteAll').addEventListener('click', deleteData);

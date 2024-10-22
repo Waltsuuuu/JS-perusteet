@@ -12,7 +12,7 @@ body {
 header img {
   margin-left: auto;
   margin-right: auto;
-  height: 20vh;
+  height: 10vh;
 }
 
 header {
@@ -38,7 +38,11 @@ header button {
 h1, h3{
   text-align: center;
   font-weight: bold;
-  font-size: 5vh;
+  font-size: 5rem;
+}
+
+h1:nth-child(1) {
+  text-decoration: underline;
 }
 
 h2 {
@@ -46,13 +50,16 @@ h2 {
   margin-top: 2rem;
   font-weight: bold;
   padding-top: 3rem;
-  font-size: 4vh;
+  font-size: 5rem;
 }
 
 h4 {
-  padding-top: 3vh;
   font-weight: bold;
   font-size: 4vh;
+}
+
+p {
+  font-size: 5rem;
 }
 
 .customization-section-type {
@@ -104,6 +111,15 @@ input[type="email"] {
   font-size: 3rem;
   padding: 2rem;
   color: #5a4a42;
+}
+
+.customization-section #nameInput, #emailInput {
+  height: 5rem;
+  width: 30%;
+}
+
+.customization-section #nameInput {
+  margin-right: 2rem;
 }
 
 #submitOrder {
@@ -220,13 +236,38 @@ input[type="submit"] {
   font-size: 4rem;
 }
 
+/* Desktop */
 
-@media screen and (min-width: 600px) {
+@media only screen and (min-width: 1000px ) {
   .container {
-    width: 50%;
     margin: auto;
-    border: 2px solid grey;
-    border-radius: 10px;
-    padding: 50px;
+    width: 50%;
+    border: 1px solid black;
   }
+
+  #tilausSivulle {
+    width: 50%;
+    height: auto;
+    font-size: 4rem;
+  }
+
+  h2 {
+    padding-top: 0;
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 3.5rem;
+  }
+
+  .customization-section #nameInput, #emailInput {
+    height: 1rem;
+  }
+
+  #price-banner {
+    width: 120px;
+    height: 120px;
+    font-size: 15px;
+  }
+
 }
